@@ -37,5 +37,38 @@ html {
 body {
   box-sizing: border-box; }
 
+.App {
+  background-color: #293744; }
+
 .search-container {
-  background-color: aqua; }
+  display: flex;
+  justify-content: center; }
+  .search-container__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .search-container__logo > img {
+    margin-top: 2rem;
+    height: 8rem; }
+  .search-container__phrase {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 400; }
+  .search-container__search {
+    display: flex;
+    margin-top: 2rem;
+    background-color: #fff;
+    width: 100%; }
+    .search-container__search img {
+      height: 2rem;
+      margin: auto;
+      cursor: pointer; }
+    .search-container__search input {
+      width: 90%;
+      outline: none;
+      padding: 1rem 0.8rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      border: none; }
