@@ -30,5 +30,8 @@ body {
 }
 
 .App{
+  display: flex;
+  flex-direction: column;
   background-color: #293744;
+  padding: 0 3rem;
 }

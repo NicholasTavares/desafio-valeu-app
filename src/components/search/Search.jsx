@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Logo from '../../assets/logo.png'
 import SearchSymbol from '../../assets/search.png'
+import Pokeball from '../../assets/pokeball.png'
 
 const Search = () => {
 
@@ -23,8 +24,12 @@ const Search = () => {
                 <div className='search-container__search'>
                     <input type="text" placeholder='Search a Pokemon' value={search}
                         onChange={(e) => setSearch(e.target.value)} />
+                    {/* TODO: colocar dentro de uma div*/}
                     <img src={SearchSymbol} alt="Search symbol" onClick={() => searchPokemon(search)} />
                 </div>
+            </div>
+            <div className='search-container__title-filter'>
+                <img src={Pokeball} alt="Pokeball" /><p>Filter by type</p>
             </div>
         </header>
     );
