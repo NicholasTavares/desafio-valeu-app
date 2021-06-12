@@ -19,8 +19,9 @@
   &__phrase{
     margin-top: 2rem;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #fff;
+    font-family: 'Segoe UI Semibold';
   }
 
   &__search{
@@ -60,7 +61,7 @@
     & > p{
       font-size: 1.8rem;
       color: #fff;
-      font-weight: bold;
+      font-family: 'Segoe UI Semibold';
     }
   }
 }

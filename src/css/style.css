@@ -48,6 +48,14 @@ body {
   font-family: 'Segoe UI';
   src: url("../assets/segoeui.ttf"); }
 
+@font-face {
+  font-family: 'Segoe UI Bold';
+  src: url("../assets/segoeuib.ttf"); }
+
+@font-face {
+  font-family: 'Segoe UI Semibold';
+  src: url("../assets/seguisb.ttf"); }
+
 .search-container {
   display: flex;
   flex-direction: column;
@@ -64,8 +72,9 @@ body {
   .search-container__phrase {
     margin-top: 2rem;
     text-align: center;
-    font-size: 1.8rem;
-    color: #fff; }
+    font-size: 2rem;
+    color: #fff;
+    font-family: 'Segoe UI Semibold'; }
   .search-container__search {
     display: flex;
     margin-top: 2rem;
@@ -94,7 +103,7 @@ body {
     .search-container__title-filter > p {
       font-size: 1.8rem;
       color: #fff;
-      font-weight: bold; }
+      font-family: 'Segoe UI Semibold'; }
 
 .container-tags {
   display: flex;
@@ -103,15 +112,26 @@ body {
   padding: 2rem 0;
   border-bottom: 2px solid #284456; }
   .container-tags__tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid #4D555C;
     border-radius: 2rem;
     padding: 0.8rem 1rem;
     margin: 0.5rem 1rem;
-    width: 11rem;
-    text-align: center;
+    width: 12rem;
+    height: 4rem;
     font-size: 1.6rem;
     text-transform: uppercase;
-    font-weight: bold; }
+    font-family: 'Segoe UI Bold';
+    cursor: pointer; }
+    .container-tags__tag__delete-icon {
+      display: flex;
+      align-items: center;
+      font-size: 2.6rem;
+      margin-left: auto; }
+    .container-tags__tag__focus {
+      border: 3px solid #4D555C; }
 
 .container-cards {
   display: flex;
@@ -159,7 +179,7 @@ body {
           margin-bottom: 0.3rem; }
         .container-cards__card__card-side__data p:first-child {
           font-size: 1.6rem;
-          font-weight: bold; }
+          font-family: 'Segoe UI Bold'; }
     .container-cards__card:hover .container-cards__card__card-side-front {
       transform: rotateY(-180deg); }
     .container-cards__card:hover .container-cards__card__card-side-back {
