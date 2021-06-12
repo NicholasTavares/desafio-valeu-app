@@ -6,39 +6,73 @@
     justify-content: space-between;
 
     &__card{
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
+        position: relative;
+        perspective: 150rem;
+        -moz-perspective: 150rem;
         height: 19rem;
         width: 19rem;
-        justify-content: center;
-        align-items: center;
-        border-radius: 4rem;
         margin-bottom: 2rem;
-        border: 1px solid #4D555C;
-        background-color: #F24130;
 
-        &__img{
-            text-align: center;
-            
-            & > img{
-                height: 9.5rem;
+        &__card-side{
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            border-radius: 4rem;
+            border: 1px solid #4D555C;
+            backface-visibility: hidden;
+            transition: all 0.8s ease;
+
+            &-front{
+                background-color: #F24130;
+            }
+
+            &-back{
+                transform: rotateY(180deg);
+                background-color:brown;
+                padding: 0 1rem;
+
+            }
+    
+            &__img{
+                text-align: center;
+                
+                & > img{
+                    height: 9.5rem;
+                }
+            }
+    
+            &__data{
+                text-align: center;
+                color: #fff;
+                font-size: 1.15rem;
+    
+                p:not(:last-child){
+                    margin-bottom: 0.5rem;
+                }
+    
+                p:first-child{
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                }
             }
         }
 
-        &__data{
-            text-align: center;
-            color: #fff;
-            font-size: 1.15rem;
-
-            p:not(:last-child){
-                margin-bottom: 0.5rem;
-            }
-
-            p:first-child{
-                font-size: 1.6rem;
-                font-weight: bold;
-            }
+        &:hover &__card-side-front{
+            transform: rotateY(-180deg);
         }
+
+        &:hover &__card-side-back{
+            transform: rotateY(0);
+        }
+
     }
+
+    
 }

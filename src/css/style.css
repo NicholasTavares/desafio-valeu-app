@@ -115,30 +115,50 @@ body {
   padding: 3rem 0;
   justify-content: space-between; }
   .container-cards__card {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    perspective: 150rem;
+    -moz-perspective: 150rem;
     height: 19rem;
     width: 19rem;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4rem;
-    margin-bottom: 2rem;
-    border: 1px solid #4D555C;
-    background-color: #F24130; }
-    .container-cards__card__img {
-      text-align: center; }
-      .container-cards__card__img > img {
-        height: 9.5rem; }
-    .container-cards__card__data {
-      text-align: center;
-      color: #fff;
-      font-size: 1.15rem; }
-      .container-cards__card__data p:not(:last-child) {
-        margin-bottom: 0.5rem; }
-      .container-cards__card__data p:first-child {
-        font-size: 1.6rem;
-        font-weight: bold; }
+    margin-bottom: 2rem; }
+    .container-cards__card__card-side {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      border-radius: 4rem;
+      border: 1px solid #4D555C;
+      backface-visibility: hidden;
+      transition: all 0.8s ease; }
+      .container-cards__card__card-side-front {
+        background-color: #F24130; }
+      .container-cards__card__card-side-back {
+        transform: rotateY(180deg);
+        background-color: brown;
+        padding: 0 1rem; }
+      .container-cards__card__card-side__img {
+        text-align: center; }
+        .container-cards__card__card-side__img > img {
+          height: 9.5rem; }
+      .container-cards__card__card-side__data {
+        text-align: center;
+        color: #fff;
+        font-size: 1.15rem; }
+        .container-cards__card__card-side__data p:not(:last-child) {
+          margin-bottom: 0.5rem; }
+        .container-cards__card__card-side__data p:first-child {
+          font-size: 1.6rem;
+          font-weight: bold; }
+    .container-cards__card:hover .container-cards__card__card-side-front {
+      transform: rotateY(-180deg); }
+    .container-cards__card:hover .container-cards__card__card-side-back {
+      transform: rotateY(0); }
 
 .loading {
   margin: 0 auto;
