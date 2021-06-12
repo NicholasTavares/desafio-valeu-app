@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Card from './Card'
 import axios from 'axios'
+import Loading from '../loading/Loading'
 
 const Cards = () => {
 
@@ -19,10 +20,10 @@ const Cards = () => {
 
     return (
         <main className='container-cards'>
-            {pokemons ? pokemons.map((res, i) => (
+            {false ? pokemons.map((res, i) => (
                 <Card name={res.name} img_url={res.img} type={res.type}
                     height={res.height} weight={res.weight} key={i} />
-            )) : 'Loading...'}
+            )) : <Loading />}
         </main>
     )
 }
