@@ -1,22 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Card from './Card'
-import axios from 'axios'
 import Loading from '../loading/Loading'
 
-const Cards = () => {
-
-    const [pokemons, setPokemons] = useState(null)
-
-    async function defaultPokemons() {
-        await axios.get('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json')
-            .then((res) => setPokemons(res.data.pokemon))
-    }
-
-    useEffect(() => {
-        defaultPokemons()
-    }, [])
-
-    console.log(pokemons)
+const Cards = ({ pokemons }) => {
 
     return (
         <main className='container-cards'>

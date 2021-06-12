@@ -4,17 +4,20 @@ import { TiDeleteOutline } from 'react-icons/ti'
 const Tag = ({ text, background_color, color_text }) => {
 
     const [iconDelete, setIconDelete] = useState(false)
+    const types = []
 
     function searchByTag(text) {
         if (text && !iconDelete) {
             setIconDelete(!iconDelete)
-            console.log('Chamar API', text)
+            types.push(text)
         } else {
             if (iconDelete) {
                 setIconDelete(!iconDelete)
+                types.filter(el => el != text)
             }
         }
 
+        console.log(types)
     }
 
     return (

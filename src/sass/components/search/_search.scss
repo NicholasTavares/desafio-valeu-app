@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   border-bottom: 2px solid #284456;
   padding-bottom: 1rem;
 
@@ -9,24 +10,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 80rem;
   }
 
   &__logo > img{
-    margin-top: 2rem;
+    margin-top: 3rem;
     height: 8rem;
+
+    @include respond(tab-port){
+      height: 10rem;
+    }
+
   }
 
   &__phrase{
-    margin-top: 2rem;
+    margin-top: 3rem;
     text-align: center;
     font-size: 2rem;
     color: #fff;
     font-family: 'Segoe UI Semibold';
+
+    @include respond(tab-port){
+      font-size: 2.5rem;
+    }
+
+    @include respond(tab-land){
+      font-size: 3rem;
+    }
+
   }
 
   &__search{
     display: flex;
-    margin-top: 2rem;
+    margin-top: 3rem;
     background-color: #fff;
     width: 100%;
 
@@ -34,6 +50,14 @@
       height: 2rem;
       margin: auto;
       cursor: pointer;
+
+      @include respond(tab-port){
+        height: 2.2rem;
+      }
+
+      @include respond(tab-land){
+        height: 2.4rem;
+      }
     }
 
     &  input {
@@ -43,6 +67,14 @@
       font-size: 1.6rem;
       font-weight:bold;
       border: none;
+
+      @include respond(tab-port){
+        font-size: 2rem;
+      }
+
+      @include respond(tab-land){
+        font-size: 2.4rem;
+      }
     }
   }
 
@@ -50,18 +82,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
-    font-size: 1.6rem;
+    margin-top: 3rem;
 
     & > img{
-      height: 4rem;
+      height: 2rem;
       margin-right: 1rem;
+
+      @include respond(tab-port){
+        height: 3rem;
+      }
     }
 
     & > p{
       font-size: 1.8rem;
       color: #fff;
       font-family: 'Segoe UI Semibold';
+
+      @include respond(tab-port){
+        font-size: 2.2rem;
+      }
     }
   }
 }

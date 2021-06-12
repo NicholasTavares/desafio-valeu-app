@@ -12,24 +12,44 @@
         border: 1px solid #4D555C;
         border-radius: 2rem;
         padding: 0.8rem 1rem;
-        margin: 0.5rem 1rem;
-        width: 12.5rem;
-        height: 4rem;
-        font-size: 1.6rem;
+        margin: 0.8rem 1rem;
+        width: 8.5rem;
+        height: 3rem;
+        font-size: 1.05rem;
         text-transform: uppercase;
         font-family: 'Segoe UI Bold';
         cursor: pointer;
 
+        @include respond(tab-port){
+            width: 12rem;
+            height: 4rem;
+            font-size: 1.4rem;
+        }
+
+        @include respond(tab-land){
+            width: 13.4rem;
+            height: 4.5rem;
+            font-size: 1.65rem;
+            margin: 1rem 1.2rem;
+        }
+
         &__delete-icon{
             display: flex;
             align-items: center;
-            font-size: 2.6rem;
+            font-size: 1.8rem;
             margin-left: auto;
-            
+
+            @include respond(tab-port){
+                font-size: 2.2rem;
+            }
+
+            @include respond(tab-land){
+                font-size: 2.4rem;
+            }
         }
 
         &__focus{
-            border: 3px solid #4D555C;
+            border: 4px solid #4D555C;
         }
     }
 }

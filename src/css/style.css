@@ -24,10 +24,10 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 html {
   font-size: 62.5%; }
-  @media (max-width: 75em) {
+  @media (min-width: 62em) {
     html {
       font-size: 56.25%; } }
-  @media (max-width: 56.25em) {
+  @media (min-width: 56.25em) {
     html {
       font-size: 50%; } }
   @media (min-width: 112.5em) {
@@ -42,7 +42,8 @@ body {
   flex-direction: column;
   background-color: #293744;
   padding: 0 3rem;
-  font-family: 'Segoe UI'; }
+  font-family: 'Segoe UI';
+  min-height: 100vh; }
 
 @font-face {
   font-family: 'Segoe UI';
@@ -60,30 +61,47 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   border-bottom: 2px solid #284456;
   padding-bottom: 1rem; }
   .search-container__content {
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    max-width: 80rem; }
   .search-container__logo > img {
-    margin-top: 2rem;
+    margin-top: 3rem;
     height: 8rem; }
+    @media (min-width: 56.25em) {
+      .search-container__logo > img {
+        height: 10rem; } }
   .search-container__phrase {
-    margin-top: 2rem;
+    margin-top: 3rem;
     text-align: center;
     font-size: 2rem;
     color: #fff;
     font-family: 'Segoe UI Semibold'; }
+    @media (min-width: 56.25em) {
+      .search-container__phrase {
+        font-size: 2.5rem; } }
+    @media (min-width: 62em) {
+      .search-container__phrase {
+        font-size: 3rem; } }
   .search-container__search {
     display: flex;
-    margin-top: 2rem;
+    margin-top: 3rem;
     background-color: #fff;
     width: 100%; }
     .search-container__search img {
       height: 2rem;
       margin: auto;
       cursor: pointer; }
+      @media (min-width: 56.25em) {
+        .search-container__search img {
+          height: 2.2rem; } }
+      @media (min-width: 62em) {
+        .search-container__search img {
+          height: 2.4rem; } }
     .search-container__search input {
       width: 90%;
       outline: none;
@@ -91,19 +109,30 @@ body {
       font-size: 1.6rem;
       font-weight: bold;
       border: none; }
+      @media (min-width: 56.25em) {
+        .search-container__search input {
+          font-size: 2rem; } }
+      @media (min-width: 62em) {
+        .search-container__search input {
+          font-size: 2.4rem; } }
   .search-container__title-filter {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
-    font-size: 1.6rem; }
+    margin-top: 3rem; }
     .search-container__title-filter > img {
-      height: 4rem;
+      height: 2rem;
       margin-right: 1rem; }
+      @media (min-width: 56.25em) {
+        .search-container__title-filter > img {
+          height: 3rem; } }
     .search-container__title-filter > p {
       font-size: 1.8rem;
       color: #fff;
       font-family: 'Segoe UI Semibold'; }
+      @media (min-width: 56.25em) {
+        .search-container__title-filter > p {
+          font-size: 2.2rem; } }
 
 .container-tags {
   display: flex;
@@ -118,34 +147,59 @@ body {
     border: 1px solid #4D555C;
     border-radius: 2rem;
     padding: 0.8rem 1rem;
-    margin: 0.5rem 1rem;
-    width: 12.5rem;
-    height: 4rem;
-    font-size: 1.6rem;
+    margin: 0.8rem 1rem;
+    width: 8.5rem;
+    height: 3rem;
+    font-size: 1.05rem;
     text-transform: uppercase;
     font-family: 'Segoe UI Bold';
     cursor: pointer; }
+    @media (min-width: 56.25em) {
+      .container-tags__tag {
+        width: 12rem;
+        height: 4rem;
+        font-size: 1.4rem; } }
+    @media (min-width: 62em) {
+      .container-tags__tag {
+        width: 13.4rem;
+        height: 4.5rem;
+        font-size: 1.65rem;
+        margin: 1rem 1.2rem; } }
     .container-tags__tag__delete-icon {
       display: flex;
       align-items: center;
-      font-size: 2.6rem;
+      font-size: 1.8rem;
       margin-left: auto; }
+      @media (min-width: 56.25em) {
+        .container-tags__tag__delete-icon {
+          font-size: 2.2rem; } }
+      @media (min-width: 62em) {
+        .container-tags__tag__delete-icon {
+          font-size: 2.4rem; } }
     .container-tags__tag__focus {
-      border: 3px solid #4D555C; }
+      border: 4px solid #4D555C; }
 
 .container-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   padding: 3rem 0;
-  justify-content: space-between; }
+  justify-content: space-around; }
   .container-cards__card {
     position: relative;
     perspective: 150rem;
     -moz-perspective: 150rem;
-    height: 19rem;
-    width: 19rem;
-    margin-bottom: 2rem; }
+    height: 16rem;
+    width: 15.5rem;
+    margin-bottom: 1rem; }
+    @media (min-width: 56.25em) {
+      .container-cards__card {
+        height: 20rem;
+        width: 20rem;
+        margin-bottom: 2rem; } }
+    @media (min-width: 62em) {
+      .container-cards__card {
+        height: 22rem;
+        width: 22rem; } }
     .container-cards__card__card-side {
       overflow: hidden;
       position: absolute;
@@ -170,16 +224,34 @@ body {
       .container-cards__card__card-side__img {
         text-align: center; }
         .container-cards__card__card-side__img > img {
-          height: 9.2rem; }
+          height: 8rem; }
+          @media (min-width: 56.25em) {
+            .container-cards__card__card-side__img > img {
+              height: 10rem; } }
+          @media (min-width: 62em) {
+            .container-cards__card__card-side__img > img {
+              height: 12rem; } }
       .container-cards__card__card-side__data {
         text-align: center;
         color: #fff;
-        font-size: 1.2rem; }
+        font-size: 1rem; }
+        @media (min-width: 56.25em) {
+          .container-cards__card__card-side__data {
+            font-size: 1.25rem; } }
+        @media (min-width: 62em) {
+          .container-cards__card__card-side__data {
+            font-size: 1.4rem; } }
         .container-cards__card__card-side__data p:not(:last-child) {
           margin-bottom: 0.3rem; }
         .container-cards__card__card-side__data p:first-child {
-          font-size: 1.6rem;
+          font-size: 1.2rem;
           font-family: 'Segoe UI Bold'; }
+          @media (min-width: 56.25em) {
+            .container-cards__card__card-side__data p:first-child {
+              font-size: 1.5rem; } }
+          @media (min-width: 62em) {
+            .container-cards__card__card-side__data p:first-child {
+              font-size: 1.7rem; } }
     .container-cards__card:hover .container-cards__card__card-side-front {
       transform: rotateY(-180deg); }
     .container-cards__card:hover .container-cards__card__card-side-back {

@@ -18,10 +18,11 @@ const Card = ({ name, img_url, type, height, weight, candy, candy_count, weaknes
 
             <div className='container-cards__card__card-side container-cards__card__card-side-back'>
                 <div className='container-cards__card__card-side__data'>
-                    <p style={{ fontSize: '2rem' }}>{name}</p>
+                    <p>{name}</p>
                     <p>Type: {type && type.map((res) => `${res}, `)}</p>
                     <p>Height: {height}</p>
                     <p>Weight: {weight}</p>
+                    {/* TODO: ás vezes retorna None */}
                     <p>Candy: {candy}</p>
                     <p>Candy count: {candy_count ? candy_count : 'Full level'}</p>
                     <p>Weaknesses: {weaknesses && weaknesses.map((res) => `${res}, `)}</p>
