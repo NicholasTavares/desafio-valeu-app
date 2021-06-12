@@ -41,13 +41,18 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #293744;
-  padding: 0 3rem; }
+  padding: 0 3rem;
+  font-family: 'Segoe UI'; }
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url("../assets/segoeui.ttf"); }
 
 .search-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 1px solid #284456;
+  border-bottom: 2px solid #284456;
   padding-bottom: 1rem; }
   .search-container__content {
     display: flex;
@@ -96,11 +101,11 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   padding: 2rem 0;
-  border-bottom: 1px solid #284456; }
+  border-bottom: 2px solid #284456; }
   .container-tags__tag {
     border: 1px solid #4D555C;
     border-radius: 2rem;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     margin: 0.5rem 1rem;
     width: 11rem;
     text-align: center;
@@ -145,13 +150,13 @@ body {
       .container-cards__card__card-side__img {
         text-align: center; }
         .container-cards__card__card-side__img > img {
-          height: 9.5rem; }
+          height: 9.2rem; }
       .container-cards__card__card-side__data {
         text-align: center;
         color: #fff;
-        font-size: 1.15rem; }
+        font-size: 1.2rem; }
         .container-cards__card__card-side__data p:not(:last-child) {
-          margin-bottom: 0.5rem; }
+          margin-bottom: 0.3rem; }
         .container-cards__card__card-side__data p:first-child {
           font-size: 1.6rem;
           font-weight: bold; }

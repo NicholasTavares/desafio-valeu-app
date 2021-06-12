@@ -18,7 +18,7 @@ const Card = ({ name, img_url, type, height, weight, candy, candy_count, weaknes
 
             <div className='container-cards__card__card-side container-cards__card__card-side-back'>
                 <div className='container-cards__card__card-side__data'>
-                    <p>{name}</p>
+                    <p style={{ fontSize: '2rem' }}>{name}</p>
                     <p>Type: {type && type.map((res) => `${res}, `)}</p>
                     <p>Height: {height}</p>
                     <p>Weight: {weight}</p>

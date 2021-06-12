@@ -34,4 +34,10 @@ body {
   flex-direction: column;
   background-color: #293744;
   padding: 0 3rem;
+  font-family: 'Segoe UI';
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('../assets/segoeui.ttf');
 }
