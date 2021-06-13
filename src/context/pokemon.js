@@ -42,7 +42,7 @@ export default function PokemonProvider({ children }) {
 
   function searchByName() {
     for (let i = 0; i < pokemonsAPI.length; i++) {
-      if (pokemonsAPI[i].name.indexOf(filterText) !== -1) {
+      if (pokemonsAPI[i].name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
         temporalyName.push(pokemonsAPI[i])
       }
     }
