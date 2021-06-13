@@ -6,7 +6,7 @@ export const PokemonContext = createContext()
 
 export default function PokemonProvider({ children }) {
   const [filterType, setFilterType] = useState([])
-  const [pokemonsAPI, setPokemonsAPI] = useState(null)
+  const [pokemonsAPI, setPokemonsAPI] = useState([])
   const [pokemons, setPokemons] = useState([])
   let listTemporaly = []
 
@@ -15,26 +15,25 @@ export default function PokemonProvider({ children }) {
   }
 
   function searchByType() {
-    console.log(filterType)
     if (filterType.length > 0) {
       listTemporaly = []
       pokemonsAPI.filter((pokemon) => {
         for (let i = 0; i < filterType.length; i++) {
           for (let t = 0; t < pokemon.type.length; t++) {
             if (pokemon.type[t] === filterType[i]) {
-              console.log('Dentro do IF', pokemon)
               listTemporaly.push(pokemon)
             }
           }
         }
       })
+      setPokemons(listTemporaly)
+    } else {
+      setPokemons(pokemonsAPI)
     }
-    setPokemons(listTemporaly)
   }
-  console.log('List of objs', pokemons)
 
   useEffect(() => searchPokemons(), [])
-  useEffect(async () => searchByType(), [filterType])
+  useEffect(() => searchByType(), [filterType])
 
   return (
     <PokemonContext.Provider value={{ filterType, setFilterType, pokemons, pokemonsAPI }}>

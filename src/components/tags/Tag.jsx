@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { TiDeleteOutline } from 'react-icons/ti'
 
 import { usePokemon } from '../../context/pokemon'
@@ -6,20 +6,17 @@ import { usePokemon } from '../../context/pokemon'
 const Tag = ({ text, background_color, color_text }) => {
 
     const { filterType, setFilterType } = usePokemon()
-
     const [iconDelete, setIconDelete] = useState(false)
-    const types = []
+    let array
 
     function searchByTag(text) {
         if (text && !iconDelete) {
             setIconDelete(!iconDelete)
             setFilterType([...filterType, text])
-
         } else {
-            if (iconDelete) {
-                setIconDelete(!iconDelete)
-                types.filter(el => el != text)
-            }
+            setIconDelete(!iconDelete)
+            array = filterType.filter((t) => t !== text)
+            setFilterType(array)
         }
     }
 

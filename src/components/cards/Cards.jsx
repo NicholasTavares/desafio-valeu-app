@@ -8,7 +8,6 @@ const Cards = () => {
 
     const { pokemons, pokemonsAPI } = usePokemon()
     let listPokemons = null
-    console.log(pokemons, pokemonsAPI)
 
     if (pokemons.length > 0) {
         listPokemons = pokemons
