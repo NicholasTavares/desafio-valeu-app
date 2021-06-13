@@ -5,7 +5,7 @@ import { usePokemon } from '../../context/pokemon'
 
 const Tag = ({ text, background_color, color_text }) => {
 
-    const { setFilterType } = usePokemon()
+    const { filterType, setFilterType } = usePokemon()
 
     const [iconDelete, setIconDelete] = useState(false)
     const types = []
@@ -13,7 +13,7 @@ const Tag = ({ text, background_color, color_text }) => {
     function searchByTag(text) {
         if (text && !iconDelete) {
             setIconDelete(!iconDelete)
-            setFilterType(text)
+            setFilterType([...filterType, text])
 
         } else {
             if (iconDelete) {

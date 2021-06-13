@@ -6,14 +6,33 @@ export const PokemonContext = createContext()
 
 export default function PokemonProvider({ children }) {
   const [filterType, setFilterType] = useState([])
-  const [pokemons, setPokemons] = useState(null)
+  const [pokemonsAPI, setPokemonsAPI] = useState(null)
+  const [pokemons, setPokemons] = useState([])
 
   async function searchPokemons() {
-    axios.get(BASE_URL).then(res => setPokemons(res.data.pokemon))
+    await axios.get(BASE_URL).then(res => setPokemonsAPI(res.data.pokemon))
   }
 
-  //TODO: Ver se dar pra usar useMemo
   useEffect(() => searchPokemons(), [])
+
+  useEffect(() => {
+    console.log(filterType)
+    if (filterType.length <= 0) {
+      setPokemons(pokemonsAPI)
+    } else {
+      pokemonsAPI.filter((pokemon) => {
+        for (let i = 0; i < filterType.length; i++) {
+          for (let t = 0; t < pokemon.type.length; t++) {
+            console.log('Dentro do segundo loop', pokemon.type[t], filterType[i])
+            if (pokemon.type[t] === filterType[i]) {
+              console.log('Dentro do IF', pokemon.type[t], filterType[i])
+              setPokemons(pokemons.push(pokemon))
+            }
+          }
+        }
+      })
+    }
+  }, [filterType])
 
   return (
     <PokemonContext.Provider value={{ filterType, setFilterType, pokemons }}>
