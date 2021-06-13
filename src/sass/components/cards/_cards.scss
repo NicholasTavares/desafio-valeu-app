@@ -13,14 +13,19 @@
         margin-bottom: 1rem;
 
         @include respond(tab-port){
-            height: 20rem;
-            width: 20rem;
+            height: 20.5rem;
+            width: 20.5rem;
             margin-bottom: 2rem;
         }
 
         @include respond(tab-land){
-            height: 22rem;
-            width: 22rem;
+            height: 24rem;
+            width: 24rem;
+        }
+
+        @include respond(big-desktop){
+            height: 25rem;
+            width: 25rem;
         }
 
         &__card-side{
@@ -60,7 +65,7 @@
                     }
 
                     @include respond(tab-land){
-                        height: 12rem;
+                        height: 13rem;
                     }
                 }
             }

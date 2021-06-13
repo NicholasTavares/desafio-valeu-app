@@ -1,7 +1,7 @@
 import React from 'react'
 import Tag from './Tag'
 
-const Tags = () => {
+const Tags = ({ filterType, setFilterType }) => {
 
     const valuesTags = [
         { text: 'normal', backgroundColor: '#fff', color: '#1F1F1F' },
@@ -29,7 +29,7 @@ const Tags = () => {
     return (
         <div className='container-tags'>
             {valuesTags.map((value, i) => <Tag text={value.text} background_color={value.backgroundColor}
-                color_text={value.color} key={i} />)}
+                color_text={value.color} filterType={filterType} setFilterType={setFilterType} key={i} />)}
         </div>
     )
 }

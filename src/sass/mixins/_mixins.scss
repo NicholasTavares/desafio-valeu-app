@@ -28,14 +28,14 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
   @if $breakpoint == tab-port {
     // 900px
-    @media (min-width: 56.25em) {
+    @media (min-width: 56em) {
       @content;
     }
   }
 
   @if $breakpoint == tab-land {
     // 1046px
-    @media (min-width: 62em) {
+    @media (min-width: 64em) {
       @content;
     }
   }
