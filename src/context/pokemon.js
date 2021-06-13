@@ -12,7 +12,7 @@ export default function PokemonProvider({ children }) {
 
   const limit = 0
   let listTemporalyType = []
-  let temporalyName = ''
+  let temporalyName = []
 
   async function searchPokemons() {
     await axios.get(BASE_URL).then(res => {
@@ -41,9 +41,13 @@ export default function PokemonProvider({ children }) {
   }
 
   function searchByName() {
-    temporalyName = pokemonsAPI.find(p => p.name === filterText)
+    for (let i = 0; i < pokemonsAPI.length; i++) {
+      if (pokemonsAPI[i].name.indexOf(filterText) !== -1) {
+        temporalyName.push(pokemonsAPI[i])
+      }
+    }
     if (temporalyName) {
-      setPokemons([temporalyName])
+      setPokemons(temporalyName)
     } else {
       setPokemons(pokemonsAPI)
     }
