@@ -15,12 +15,16 @@ export default function PokemonProvider({ children }) {
   let temporalyName = ''
 
   async function searchPokemons() {
-    await axios.get(BASE_URL).then(res => setPokemonsAPI(res.data.pokemon))
+    await axios.get(BASE_URL).then(res => {
+      setPokemonsAPI(res.data.pokemon)
+      setPokemons(res.data.pokemon)
+    })
   }
 
   function searchByType() {
     if (filterType.length > limit) {
       listTemporalyType = []
+      // eslint-disable-next-line
       pokemonsAPI.filter((pokemon) => {
         for (let i = 0; i < filterType.length; i++) {
           for (let t = 0; t < pokemon.type.length; t++) {
@@ -47,7 +51,9 @@ export default function PokemonProvider({ children }) {
 
 
   useEffect(() => searchPokemons(), [])
+  // eslint-disable-next-line
   useEffect(() => searchByType(), [filterType])
+  // eslint-disable-next-line
   useEffect(() => searchByName(), [filterText])
 
   return (
