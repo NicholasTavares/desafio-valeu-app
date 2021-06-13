@@ -7,7 +7,7 @@ export const PokemonContext = createContext()
 export default function PokemonProvider({ children }) {
   const [filterType, setFilterType] = useState([])
   const [pokemonsAPI, setPokemonsAPI] = useState([])
-  const [pokemons, setPokemons] = useState([])
+  const [pokemons, setPokemons] = useState(null)
   const [filterText, setFilterText] = useState(null)
 
   const limit = 0
