@@ -1,15 +1,14 @@
-import React, { useState } from "react"
+import React, { useRef } from "react"
 import Logo from '../../assets/logo.png'
 import SearchSymbol from '../../assets/search.png'
 import Pokeball from '../../assets/pokeball.png'
 
+import { usePokemon } from '../../context/pokemon'
+
 const Search = () => {
 
-    const [search, setSearch] = useState('')
-
-    function searchPokemon(name) {
-        console.log(name)
-    }
+    const { setFilterText } = usePokemon()
+    const pokemonName = useRef(null)
 
     return (
         <header className="search-container">
@@ -22,10 +21,9 @@ const Search = () => {
                 </p>
                 {/* TODO: Ver as bordas*/}
                 <div className='search-container__search'>
-                    <input type="text" placeholder='Search a Pokemon' value={search}
-                        onChange={(e) => setSearch(e.target.value)} />
+                    <input type="text" placeholder='Search a Pokemon' ref={pokemonName} />
                     {/* TODO: colocar dentro de uma div*/}
-                    <img src={SearchSymbol} alt="Search symbol" onClick={() => searchPokemon(search)} />
+                    <img src={SearchSymbol} alt="Search symbol" onClick={() => setFilterText(pokemonName.current.value)} />
                 </div>
             </div>
             <div className='search-container__title-filter'>

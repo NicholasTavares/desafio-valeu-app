@@ -4,7 +4,7 @@ const Card = ({ name, img_url, type, height, weight, candy, candy_count, weaknes
 
     return (
         <div className='container-cards__card'>
-            <div className='container-cards__card__card-side container-cards__card__card-side-front'>
+            <div className={`container-cards__card__card-side container-cards__card__card-side-front backgroundCard-${type[0]}`}>
                 <div className='container-cards__card__card-side__img'>
                     <img src={img_url} alt={name} />
                 </div>
@@ -16,7 +16,7 @@ const Card = ({ name, img_url, type, height, weight, candy, candy_count, weaknes
                 </div>
             </div>
 
-            <div className='container-cards__card__card-side container-cards__card__card-side-back'>
+            <div className={`container-cards__card__card-side container-cards__card__card-side-back backgroundCard-${type[0]}`}>
                 <div className='container-cards__card__card-side__data'>
                     <p>{name}</p>
                     <p>Type: {type && type.map((res) => `${res}, `)}</p>

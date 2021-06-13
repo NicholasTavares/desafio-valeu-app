@@ -7,7 +7,7 @@ const Tag = ({ text, background_color, color_text }) => {
 
     const { filterType, setFilterType } = usePokemon()
     const [iconDelete, setIconDelete] = useState(false)
-    let array
+    let listType
 
     function searchByTag(text) {
         if (text && !iconDelete) {
@@ -15,8 +15,8 @@ const Tag = ({ text, background_color, color_text }) => {
             setFilterType([...filterType, text])
         } else {
             setIconDelete(!iconDelete)
-            array = filterType.filter((t) => t !== text)
-            setFilterType(array)
+            listType = filterType.filter((t) => t !== text)
+            setFilterType(listType)
         }
     }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React from 'react'
 
 import Cards from "./components/cards/Cards";
 import Search from "./components/search/Search";

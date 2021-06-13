@@ -16,7 +16,7 @@ const Tags = ({ filterType, setFilterType }) => {
         { text: 'Fire', backgroundColor: '#A8282B', color: '#fff' },
         { text: 'Water', backgroundColor: '#145EAB', color: '#fff' },
         { text: 'Grass', backgroundColor: '#7D8545', color: '#fff' },
-        { text: 'Eletric', backgroundColor: '#BA9A22', color: '#fff' },
+        { text: 'Electric', backgroundColor: '#BA9A22', color: '#fff' },
         { text: 'Psychic', backgroundColor: '#452A8D', color: '#fff' },
         { text: 'Ice', backgroundColor: '#659DBA', color: '#fff' },
         { text: 'Dragon', backgroundColor: '#D57931', color: '#fff' },

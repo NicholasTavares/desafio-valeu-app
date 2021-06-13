@@ -5,7 +5,6 @@ import Loading from '../loading/Loading'
 import { usePokemon } from '../../context/pokemon'
 
 const Cards = () => {
-
     const { pokemons, pokemonsAPI } = usePokemon()
     let listPokemons = null
 
