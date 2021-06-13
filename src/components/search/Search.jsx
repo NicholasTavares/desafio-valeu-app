@@ -20,7 +20,8 @@ const Search = () => {
                     Uma Pokedex completa criada em React JS
                 </p>
                 <div className='search-container__search'>
-                    <input type="text" placeholder='Search a Pokemon' ref={pokemonName} />
+                    <input type="text" placeholder='Search a Pokemon' ref={pokemonName}
+                        onKeyPress={(e) => { if (e.key === 'Enter') setFilterText(pokemonName.current.value) }} />
                     <div className='search-container__search__img' onClick={() => setFilterText(pokemonName.current.value)}>
                         <img src={SearchSymbol} alt="Search symbol" />
                     </div>
