@@ -8,34 +8,36 @@ export default function PokemonProvider({ children }) {
   const [filterType, setFilterType] = useState([])
   const [pokemonsAPI, setPokemonsAPI] = useState(null)
   const [pokemons, setPokemons] = useState([])
+  let listTemporaly = []
 
   async function searchPokemons() {
     await axios.get(BASE_URL).then(res => setPokemonsAPI(res.data.pokemon))
   }
 
-  useEffect(() => searchPokemons(), [])
-
-  useEffect(() => {
+  function searchByType() {
     console.log(filterType)
-    if (filterType.length <= 0) {
-      setPokemons(pokemonsAPI)
-    } else {
+    if (filterType.length > 0) {
+      listTemporaly = []
       pokemonsAPI.filter((pokemon) => {
         for (let i = 0; i < filterType.length; i++) {
           for (let t = 0; t < pokemon.type.length; t++) {
-            console.log('Dentro do segundo loop', pokemon.type[t], filterType[i])
             if (pokemon.type[t] === filterType[i]) {
-              console.log('Dentro do IF', pokemon.type[t], filterType[i])
-              setPokemons(pokemons.push(pokemon))
+              console.log('Dentro do IF', pokemon)
+              listTemporaly.push(pokemon)
             }
           }
         }
       })
     }
-  }, [filterType])
+    setPokemons(listTemporaly)
+  }
+  console.log('List of objs', pokemons)
+
+  useEffect(() => searchPokemons(), [])
+  useEffect(async () => searchByType(), [filterType])
 
   return (
-    <PokemonContext.Provider value={{ filterType, setFilterType, pokemons }}>
+    <PokemonContext.Provider value={{ filterType, setFilterType, pokemons, pokemonsAPI }}>
       {children}
     </PokemonContext.Provider>
   )
@@ -44,7 +46,7 @@ export default function PokemonProvider({ children }) {
 
 export function usePokemon() {
   const context = useContext(PokemonContext)
-  const { filterType, setFilterType, pokemons } = context
+  const { filterType, setFilterType, pokemons, pokemonsAPI } = context
 
-  return { filterType, setFilterType, pokemons }
+  return { filterType, setFilterType, pokemons, pokemonsAPI }
 }
