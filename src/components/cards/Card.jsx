@@ -22,8 +22,7 @@ const Card = ({ name, img_url, type, height, weight, candy, candy_count, weaknes
                     <p>Type: {type && type.map((res) => `${res}, `)}</p>
                     <p>Height: {height}</p>
                     <p>Weight: {weight}</p>
-                    {/* TODO: ás vezes retorna None */}
-                    <p>Candy: {candy}</p>
+                    <p>Candy: {candy ? candy : '0'}</p>
                     <p>Candy count: {candy_count ? candy_count : 'Full level'}</p>
                     <p>Weaknesses: {weaknesses && weaknesses.map((res) => `${res}, `)}</p>
                     <p>Spawns chance: {avg_spawns}%</p>

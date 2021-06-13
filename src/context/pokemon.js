@@ -37,11 +37,11 @@ export default function PokemonProvider({ children }) {
   }
 
   function searchByName() {
-    if (filterText) {
-      temporalyName = pokemonsAPI.find(p => p.name === filterText)
-      if (temporalyName) {
-        setPokemons([temporalyName])
-      }
+    temporalyName = pokemonsAPI.find(p => p.name === filterText)
+    if (temporalyName) {
+      setPokemons([temporalyName])
+    } else {
+      setPokemons(pokemonsAPI)
     }
   }
 

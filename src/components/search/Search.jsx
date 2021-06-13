@@ -19,11 +19,11 @@ const Search = () => {
                 <p className='search-container__phrase'>
                     Uma Pokedex completa criada em React JS
                 </p>
-                {/* TODO: Ver as bordas*/}
                 <div className='search-container__search'>
                     <input type="text" placeholder='Search a Pokemon' ref={pokemonName} />
-                    {/* TODO: colocar dentro de uma div*/}
-                    <img src={SearchSymbol} alt="Search symbol" onClick={() => setFilterText(pokemonName.current.value)} />
+                    <div className='search-container__search__img' onClick={() => setFilterText(pokemonName.current.value)}>
+                        <img src={SearchSymbol} alt="Search symbol" />
+                    </div>
                 </div>
             </div>
             <div className='search-container__title-filter'>
