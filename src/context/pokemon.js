@@ -11,6 +11,7 @@ export default function PokemonProvider({ children }) {
   const [filterText, setFilterText] = useState(null)
 
   let listTemporaly = []
+  const limit = 0
 
   async function searchPokemons() {
     await axios.get(BASE_URL).then(res => {
@@ -20,10 +21,10 @@ export default function PokemonProvider({ children }) {
   }
 
   function searchByType() {
-    if (filterType) {
-      listTemporaly = pokemonsAPI.filter(
-        pokemon => pokemon.type.some(type => filterType.includes(type))
-      )
+    if (filterType.length > limit) {
+      listTemporaly = pokemonsAPI.filter(pokemon => (
+        pokemon.type.some(type => filterType.includes(type))
+      ))
       setPokemons(listTemporaly)
     } else {
       setPokemons(pokemonsAPI)
@@ -31,10 +32,10 @@ export default function PokemonProvider({ children }) {
   }
 
   function searchByName() {
-    listTemporaly = pokemonsAPI.filter(pokemon => (
-      pokemon.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1
-    ))
-    if (listTemporaly) {
+    if (filterText) {
+      listTemporaly = pokemonsAPI.filter(pokemon => (
+        pokemon.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1
+      ))
       setPokemons(listTemporaly)
     } else {
       setPokemons(pokemonsAPI)
