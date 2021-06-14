@@ -10,9 +10,7 @@ export default function PokemonProvider({ children }) {
   const [pokemons, setPokemons] = useState(null)
   const [filterText, setFilterText] = useState(null)
 
-  const limit = 0
-  let listTemporalyType = []
-  let temporalyName = []
+  let listTemporaly = []
 
   async function searchPokemons() {
     await axios.get(BASE_URL).then(res => {
@@ -22,32 +20,22 @@ export default function PokemonProvider({ children }) {
   }
 
   function searchByType() {
-    if (filterType.length > limit) {
-      listTemporalyType = []
-      // eslint-disable-next-line
-      pokemonsAPI.filter((pokemon) => {
-        for (let i = 0; i < filterType.length; i++) {
-          for (let t = 0; t < pokemon.type.length; t++) {
-            if (pokemon.type[t] === filterType[i]) {
-              listTemporalyType.push(pokemon)
-            }
-          }
-        }
-      })
-      setPokemons(listTemporalyType)
+    if (filterType) {
+      listTemporaly = pokemonsAPI.filter(
+        pokemon => pokemon.type.some(type => filterType.includes(type))
+      )
+      setPokemons(listTemporaly)
     } else {
       setPokemons(pokemonsAPI)
     }
   }
 
   function searchByName() {
-    for (let i = 0; i < pokemonsAPI.length; i++) {
-      if (pokemonsAPI[i].name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
-        temporalyName.push(pokemonsAPI[i])
-      }
-    }
-    if (temporalyName) {
-      setPokemons(temporalyName)
+    listTemporaly = pokemonsAPI.filter(pokemon => (
+      pokemon.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1
+    ))
+    if (listTemporaly) {
+      setPokemons(listTemporaly)
     } else {
       setPokemons(pokemonsAPI)
     }
