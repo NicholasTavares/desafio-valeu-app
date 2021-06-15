@@ -1,3 +1,24 @@
+.container-cards-count{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    font-size: 1.8rem;
+    font-family: 'Segoe Ui Semibold';
+    color: white;
+
+    @include respond(tab-port){
+        font-size: 2rem;
+    }
+
+    @include respond(tab-land){
+        font-size: 2.4rem;
+    }
+
+    &__count{
+        margin: auto;
+    }
+}
+
 .container-cards{
     display: flex;
     flex-wrap: wrap;

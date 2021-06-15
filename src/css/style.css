@@ -183,6 +183,22 @@ body {
     .container-tags__tag__focus {
       border: 4px solid #4D555C; }
 
+.container-cards-count {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  font-size: 1.8rem;
+  font-family: 'Segoe Ui Semibold';
+  color: white; }
+  @media (min-width: 56em) {
+    .container-cards-count {
+      font-size: 2rem; } }
+  @media (min-width: 64em) {
+    .container-cards-count {
+      font-size: 2.4rem; } }
+  .container-cards-count__count {
+    margin: auto; }
+
 .container-cards {
   display: flex;
   flex-wrap: wrap;
